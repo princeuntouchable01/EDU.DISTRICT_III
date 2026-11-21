@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#102B46">
+  <meta name="robots" content="noindex">
+
+  <title>Parent Dashboard | EDU. DISTRICT III</title>
+
+  <link rel="stylesheet" href="css/style.css">
+  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2.57.4/dist/umd/supabase.js" defer></script>
+  <script src="js/supabase-client.js" defer></script>
+  <script src="js/script.js" defer></script>
+  <script src="js/parent-dashboard.js" defer></script>
+  <link rel="icon" href="images/favicon.png">
+</head>
+
+<body class="dash-page">
+
+  <header class="site-header">
+
+    <a class="brand" href="index.html">
+      <img src="images/district-logo.jpg" alt="District emblem">
+
+      <span>
+        EDU. DISTRICT III
+        <small>STUDENT & FAMILY PORTAL</small>
+      </span>
+    </a>
+
+    <button id="signout-btn" class="button button-primary button-small" type="button">
+      Sign out
+    </button>
+
+  </header>
+
+  <main class="dash-main">
+
+    <section class="dash-intro">
+      <p class="eyebrow">PARENT & GUARDIAN PORTAL</p>
+      <h1>Welcome, <span id="welcome-name">…</span></h1>
+      <p class="muted">
+        Register your child, track the school's verification, and view published
+        results and attendance once the school has confirmed your link.
+      </p>
+    </section>
+
+    <section aria-labelledby="children-heading">
+      <h2 id="children-heading" class="dash-heading">My children</h2>
+      <div id="children-list" aria-live="polite">
+        <p class="muted">Loading…</p>
+      </div>
+    </section>
+
+    <section class="dash-card" aria-labelledby="register-heading">
+
+      <h2 id="register-heading" class="dash-heading">Register a child</h2>
+
+      <p class="muted">
+        Enter the details exactly as they appear in the school's records.
+        The school administrator will verify them before you can see any
+        academic information.
+      </p>
+
+      <form id="register-form" class="dash-form" novalidate>
+
+        <label for="reg-school">School</label>
+        <select id="reg-school" required>
+          <option value="">Loading schools…</option>
+        </select>
+
+        <label for="reg-name">Child's full name</label>
+        <input id="reg-name" type="text" maxlength="120" autocomplete="off" required>
+
+        <label for="reg-admission">Admission number</label>
+        <input id="reg-admission" type="text" maxlength="30" autocomplete="off" required>
+
+        <label for="reg-class">Current class</label>
+        <input id="reg-class" type="text" maxlength="30" placeholder="For example: JSS 2" autocomplete="off" required>
+
+        <label for="reg-relationship">Your relationship to the child</label>
+        <select id="reg-relationship" required>
+          <option value="">Select relationship</option>
+          <option value="parent">Parent</option>
+          <option value="guardian">Legal guardian</option>
+          <option value="other">Other authorised caregiver</option>
+        </select>
+
+        <label for="reg-photo">Passport photograph (required)</label>
+        <input id="reg-photo" type="file" accept="image/jpeg,image/png,image/webp" required>
+        <p class="form-note field-note">JPEG, PNG or WebP, up to 2 MB. A clear, recent face photograph.</p>
+        <img id="photo-preview" class="photo-preview" alt="Preview of the selected passport photograph" hidden>
+
+        <label class="check-row" for="reg-confirm">
+          <input id="reg-confirm" type="checkbox" required>
+          <span>I confirm that this information is accurate and that I am authorised to register this child.</span>
+        </label>
+
+        <button class="button button-primary button-full" type="submit">
+          Submit for verification
+        </button>
+
+        <p id="reg-note" class="form-note" role="status" aria-live="polite"></p>
+
+      </form>
+
+    </section>
+
+  </main>
+
+  <footer class="site-footer">
+    <small>© <span id="year"></span> EDU. DISTRICT III</small>
+  </footer>
+
+</body>
+</html>
